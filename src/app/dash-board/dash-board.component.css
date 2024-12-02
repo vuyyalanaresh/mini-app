@@ -11,6 +11,8 @@
     overflow: auto;
 }
 .right{
+display: flex;
+align-items: center;
     width: 70%;
     height: 100%;
     background-color: chocolate;
