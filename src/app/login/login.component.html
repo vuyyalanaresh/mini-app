@@ -1,0 +1,12 @@
+<!-- <button Class="btn btn-info"  routerLink="/dash-board">Login</button> -->
+<div class="parent">
+    <form [formGroup]="LoginForm">
+        <label for="">Email</label>
+        <input type="email" formControlName="email">
+        <br>
+        <label for="">Password:</label>
+        <input type="password" formControlName="password">
+        <br>
+        <button class="btn btn-danger" (click)="login()">Login</button>
+    </form>
+</div>

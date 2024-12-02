@@ -1,0 +1,65 @@
+<h1>Create-Employe</h1>
+<form [formGroup]="userForm">
+<label>Name:</label>
+<input type="text" formControlName="name">
+<br>
+<label>Company</label>
+<input type="text" formControlName="company">
+<br>
+<label>role:</label>
+<input type="text" formControlName="role">
+<br>
+<label>package</label>
+<input type="text" formControlName="package">
+<br>
+<label>email:</label>
+<input type="email" formControlName="email">
+<br>
+<label>DOB:</label>
+<input type="date" formControlName="dob">
+<br>
+<div formGroupName="address">
+    <label>AddresLine</label>
+    <input type="text" formControlName="addresline">
+    <br>
+    <label>City</label>
+    <input type="text" formControlName="city">
+    <br>
+    <label>State</label>
+    <input type="text" formControlName="state">
+    <br>
+    <label>Pincode</label>
+    <input type="text" formControlName="pincode">
+</div>
+<label>Hikes</label>
+<button class="btn btn-primary" (click)="addhikes()">Hikes</button>
+<div formArrayName="hikes">
+    <div *ngFor="let hike of hikesFormArray.controls;let i=index">
+        <div formGroupName="{{i}}">
+            <h2>Hike{{i+1}}</h2>
+            <label>Percentage:</label>
+            <input type="text" formControlName="percentage">
+            <label>Year:</label>
+            <input type="number" formControlName="year">
+        </div>
+    </div>
+</div>
+<br>
+<label>WorkMode:</label>
+<input type="radio" name="mode" formControlName="workMode" value="workfromoffice">
+<label>WorkFromOffice</label>
+<input type="radio" name="mode" formControlName="workMode" value="remote">
+<label>Remote</label>
+<br>
+<div *ngIf="userForm.get('workMode')?.value=='workfromoffice'">
+<label>travelFee:</label>
+<input type="number" formControlName="travelfee">
+<br>
+</div>
+<div *ngIf="userForm.get('workMode')?.value=='remote'">
+    <label>WiFi Bill:</label>
+    <input type="number"formControlName="wifibill" >
+</div>
+<button class="btn btn-warning" (click)="submit()">submit</button>
+
+</form>

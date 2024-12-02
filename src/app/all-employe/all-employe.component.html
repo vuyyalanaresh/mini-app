@@ -1,0 +1,52 @@
+<h1>All Employes</h1>
+<select [(ngModel)]="column">
+    <option>Role</option>
+    <option>package</option>
+    <option>company</option>
+</select>
+<select [(ngModel)]="order">
+    <option>asc</option>
+    <option>desc</option>
+</select>
+<button class="btn btn-danger" (click)="sort()">Sort</button>
+<select [(ngModel)]="limit">
+    <option>10</option>
+    <option>20</option>
+    <option>30</option>
+</select>
+<select [(ngModel)]="page">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+</select>
+<button class="btn btn-danger" (click)="pagination()">page</button>
+
+<input type="text" [(ngModel)]="term" (keyup)="filter()">
+<table class="table table-dark table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>package</th>
+            <th>email</th>
+            <th>DOB</th>
+            <th>id</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let allemploye of allemployes">
+            <td>{{allemploye.name}}</td>
+            <td>{{allemploye.company}}</td>
+            <td>{{allemploye.role}}</td>
+            <td [ngClass]="{'text-danger':allemploye.package<900000,'text-success':allemploye.package>=900000}">{{allemploye.package}}</td>
+            <td>{{allemploye.email}}</td>
+            <td>{{allemploye.dob}}</td>
+            <td>{{allemploye.id}}</td>
+            <td>
+                
+                <button class="btn btn-warning" (click)="delete(allemploye.id)">delete</button></td>
+        </tr>
+    </tbody>
+</table>
