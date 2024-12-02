@@ -11,10 +11,13 @@
     overflow: auto;
 }
 .right{
-display: flex;
-align-items: center;
+    display: flex;
     width: 70%;
     height: 100%;
+    align-items: center;
+    border: 10px;
+    margin: 10px;
+    padding: 10px;
     background-color: chocolate;
     overflow: auto;
 }
